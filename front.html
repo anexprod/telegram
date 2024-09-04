@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Web App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .button {
+            background-color: #0078FF;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Выберите действие</h1>
+    <button class="button" onclick="sendAction('Вышел')">Вышел</button>
+    <button class="button" onclick="sendAction('Пришел')">Пришел</button>
+    <button class="button" onclick="sendAction('Обед')">Обед</button>
+    <script>
+        function sendAction(action) {
+            const payload = { action: action };
+            window.Telegram.WebApp.sendData(JSON.stringify(payload));
+        }
+    </script>
+</body>
+</html>
